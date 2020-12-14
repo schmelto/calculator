@@ -40,6 +40,12 @@ keys.addEventListener('click', (event) => {
     return;
   }
 
-  console.log('digit', target.value);
+  inputDigit(target.value);
+  updateDisplay();
 });
 
+function inputDigit(digit) {
+    const { displayValue } = calculator;
+    // Overwrite `displayValue` if the current value is '0' otherwise append to it
+    calculator.displayValue = displayValue === '0' ? digit : displayValue + digit;
+  }
